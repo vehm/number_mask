@@ -1,39 +1,39 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+# number_mask
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+A minimalistic approach to helping developers more easily mask/format numeric fields without requiring new field widgets.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
 
-## Features
+## Authors
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- [@vehm](https://www.github.com/vehm)
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+The usage of NumberMask is very simple.
 ```dart
-const like = 'sample';
+NumberMask(pattern: '###-###-####')
 ```
+Simply put `#`'s in every position you want a number to go. The pattern can be anything you want, including letters and symbols - anything that can normally be input into a TextField or TextFormField. Input will automatically be masked to the pattern you have defined.\
+\
+For Example:
+```dart
+import 'package:number_mask/number_mask.dart';
 
-## Additional information
+...
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+TextFormField(
+    controller: _workPhoneController,
+    decoration: const InputDecoration(
+        labelText: 'Phone Number*',
+    ),
+    keyboardType: TextInputType.phone,
+    inputFormatters: [
+        NumberMask(pattern: '###-###-#### Ext. ###'),
+    ],
+),
+```
+The above example will automatically mask user input to the pattern we have defined: i.e. `555-555-5555 Ext. 555`.\
+\
+If the pattern is not defined, it will default to a free-form (read: empty) pattern. This will allow only numeric input without a defined length.
