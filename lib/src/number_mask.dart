@@ -36,10 +36,7 @@ class NumberMask extends TextInputFormatter {
     var sanitized = sanitize(newValue.text);
 
     if (pattern.isEmpty) {
-      return TextEditingValue(
-        text: sanitized,
-        selection: TextSelection.collapsed(offset: sanitized.length),
-      );
+      return newValue.copyWith(text: sanitized);
     }
 
     var relativeIndex = nthIndex(pattern, '#', sanitized.length);
@@ -63,8 +60,12 @@ class NumberMask extends TextInputFormatter {
       }
     }
 
-    var relativeOffset = (newValue.selection.baseOffset +
-        (newText.length - newValue.text.length));
+    var baseOffset = newValue.selection.baseOffset;
+    var inputLength = newValue.text.length;
+    var outputLength = newText.length;
+
+    var relativeOffset = (baseOffset + (outputLength - inputLength));
+
     return TextEditingValue(
       text: newText.toString(),
       selection: TextSelection.collapsed(
