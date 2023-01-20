@@ -43,12 +43,13 @@ class NumberMask extends TextInputFormatter {
     }
 
     var relativeIndex = nthIndex(pattern, '#', sanitized.length);
+    var nextIndex = relativeIndex + 1;
 
     if (relativeIndex == -1 && sanitized.isNotEmpty) {
       return oldValue;
     }
 
-    var trimmedFormat = pattern.substring(0, relativeIndex + 1);
+    var trimmedFormat = pattern.substring(0, nextIndex);
     var index = 0;
 
     for (var i = 0; i < trimmedFormat.length; i++) {
@@ -62,9 +63,13 @@ class NumberMask extends TextInputFormatter {
       }
     }
 
+    var relativeOffset = (newValue.selection.baseOffset +
+        (newText.length - newValue.text.length));
     return TextEditingValue(
       text: newText.toString(),
-      selection: TextSelection.collapsed(offset: newText.length),
+      selection: TextSelection.collapsed(
+        offset: relativeOffset,
+      ),
     );
   }
 
