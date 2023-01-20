@@ -7,6 +7,16 @@
 - Add optional parameter on NumberMask to allow for numeric input after mask ends. Default to false.
 - Add optional parameter on NumberMask to allow for users to change the pattern-identifier (`#` by default).
 
+## [1.0.2] - 2023-01-19
+
+### Added
+
+- Example folder and file for pub.dev 'Example' tab.
+
+### Changed
+
+- Updated pubspec.yaml information.
+
 ## [1.0.1] - 2023-01-19
 
 ### Fixed
