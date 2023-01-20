@@ -7,6 +7,12 @@
 - Add optional parameter on NumberMask to allow for numeric input after mask ends. Default to false.
 - Add optional parameter on NumberMask to allow for users to change the pattern-identifier (`#` by default).
 
+## [1.0.1] - 2023-01-19
+
+### Fixed
+
+- Fixed a bug that allows users to insert non-numeric input due to an incorrect RegExp.
+
 ## [1.0.0] - 2023-01-18
 
 ### Added

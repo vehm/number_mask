@@ -1,6 +1,6 @@
 name: number_mask
 description: A Flutter package designed to allow developers to more easily mask numeric form fields.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/vehm/number_mask
 
 environment:
