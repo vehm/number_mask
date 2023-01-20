@@ -69,6 +69,6 @@ class NumberMask extends TextInputFormatter {
   }
 
   String sanitize(String text) {
-    return text.replaceAll(RegExp(r'[^\[0-9]]'), '');
+    return text.replaceAll(RegExp(r'[^0-9]+'), '');
   }
 }
