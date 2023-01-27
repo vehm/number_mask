@@ -2,8 +2,6 @@
 
 A minimalistic approach to helping developers more easily mask/format numeric fields without requiring new field widgets.
 
-[![BSD 3-Clause License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/BSD-3-Clause)
-
 ## Authors
 
 -   [@vehm](https://www.github.com/vehm)
